@@ -1,0 +1,152 @@
+HỆ THỐNG QUẢN LÝ SINH VIÊN
+1. Giới thiệu đề tài
+
+Hệ thống Quản lý Sinh viên được xây dựng nhằm hỗ trợ quản lý thông tin sinh viên trong môi trường học tập như: thêm, sửa, xóa, tìm kiếm và cập nhật điểm số.
+
+Hệ thống giúp giảm thiểu sai sót trong quản lý thủ công và tăng hiệu quả lưu trữ dữ liệu.
+
+2. Mô tả bài toán
+
+Hiện nay việc quản lý sinh viên thường được thực hiện bằng Excel hoặc ghi chép thủ công, gây khó khăn khi:
+
+Số lượng sinh viên lớn
+
+Cần cập nhật thông tin thường xuyên
+
+Tìm kiếm và thống kê dữ liệu
+
+Vì vậy cần xây dựng hệ thống phần mềm có giao diện thân thiện và kết nối cơ sở dữ liệu để lưu trữ thông tin tập trung.
+
+3. Phạm vi hệ thống
+
+Hệ thống gồm 2 phần chính:
+
+3.1 Frontend (Java Swing Desktop Application)
+
+Xây dựng bằng Java Swing
+
+Cung cấp giao diện người dùng
+
+Chức năng:
+
+Nhập thông tin sinh viên
+
+Sửa thông tin sinh viên
+
+Xóa sinh viên
+
+Hiển thị danh sách bằng JTable
+
+Kiểm tra dữ liệu hợp lệ
+
+3.2 Backend (Java + DAO + MySQL)
+
+Xây dựng bằng Java
+
+Sử dụng mô hình:
+
+Model
+
+DAO (Data Access Object)
+
+Kết nối cơ sở dữ liệu MySQL
+
+Thực hiện các chức năng:
+
+Thêm sinh viên
+
+Cập nhật sinh viên
+
+Xóa sinh viên
+
+Lấy danh sách sinh viên
+
+4. Các chức năng chính
+4.1 Thêm sinh viên
+
+Nhập:
+
+Họ và tên
+
+Mã sinh viên
+
+Số điện thoại
+
+Lớp
+
+Điểm trung bình
+
+Kiểm tra:
+
+Không để trống
+
+Điểm phải từ 0 – 10
+
+4.2 Sửa sinh viên
+
+Chọn sinh viên từ bảng
+
+Cập nhật thông tin
+
+Lưu vào database
+
+4.3 Xóa sinh viên
+
+Chọn sinh viên
+
+Xóa khỏi database
+
+Cập nhật lại bảng
+
+4.4 Tìm kiếm sinh viên
+
+Tìm theo tên
+
+Tìm theo mã sinh viên
+
+4.5 Hiển thị danh sách
+
+Dữ liệu lấy từ database
+
+Hiển thị bằng JTable
+
+5. Thiết kế cơ sở dữ liệu
+Bảng: sinhvien
+Tên cột	Kiểu dữ liệu	Mô tả
+id	INT (PK, AUTO_INCREMENT)	ID
+ma_sv	VARCHAR(20)	Mã sinh viên
+ho_ten	VARCHAR(255)	Họ tên
+sdt	VARCHAR(15)	Số điện thoại
+lop	VARCHAR(50)	Lớp
+diem_tb	FLOAT	Điểm trung bình
+6. Công nghệ sử dụng
+
+Ngôn ngữ: Java
+
+Frontend: Java Swing
+
+Backend: Java (DAO Pattern)
+
+Database: MySQL
+
+IDE: NetBeans
+
+JDBC để kết nối DB
+
+7. Mô hình hệ thống
+Java Swing UI
+        ↓
+DAO Layer (Java)
+        ↓
+MySQL Database
+8. Hướng phát triển
+
+Thêm chức năng đăng nhập
+
+Phân quyền Admin / User
+
+Thống kê sinh viên theo lớp
+
+Xuất file Excel
+
+Chuyển sang Web Application (Spring Boot)
