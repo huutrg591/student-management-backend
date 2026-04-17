@@ -1,13 +1,17 @@
-# 🚀 KTX Management System - Backend API
+<div align="center">
+  <img src="https://cdn-icons-png.flaticon.com/512/906/906343.png" width="80" height="80" alt="KTX Logo">
+  <h1>🚀 KTX Management System - Backend API</h1>
 
-Hệ thống quản lý Ký túc xá tập trung, xây dựng trên nền tảng **Spring Boot 3 REST API**.
+  <img src="https://img.shields.io/badge/Spring%20Boot-3.2.0-brightgreen?style=for-the-badge&logo=springboot" alt="Spring Boot">
+  <img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk" alt="Java">
+  <img src="https://img.shields.io/badge/MySQL-8.0-blue?style=for-the-badge&logo=mysql" alt="MySQL">
+  <img src="https://img.shields.io/badge/Hibernate-ORM-yellow?style=for-the-badge&logo=hibernate" alt="Hibernate">
+  <img src="https://img.shields.io/badge/Maven-Project-red?style=for-the-badge&logo=apachemaven" alt="Maven">
 
-## 🛠 Tech Stack
-* **Language:** Java 17+
-* **Framework:** Spring Boot 3.x
-* **Database:** MySQL 8.x
-* **ORM:** Spring Data JPA / Hibernate
-* **Build Tool:** Maven
+  <p>Hệ thống quản lý Ký túc xá tập trung, cung cấp RESTful API bảo mật và hiệu năng cao.</p>
+</div>
+
+---
 
 ## 📋 Chức năng chính
 - **Auth API:** Xử lý đăng nhập và phân quyền (Admin/Student).
@@ -19,10 +23,4 @@ Hệ thống quản lý Ký túc xá tập trung, xây dựng trên nền tảng
 ## ⚙️ Hướng dẫn cài đặt
 1. **Database:** Tạo database `ql_ky_tuc_xa` trong MySQL và chạy script SQL khởi tạo.
 2. **Configuration:** Cập nhật thông tin kết nối DB tại `src/main/resources/application.properties`.
-3. **Run:** Chạy file `TtcsApplication.java`. Server sẽ lắng nghe tại cổng `8080`.
-
-## 📌 API Endpoints tiêu biểu
-- `POST /api/auth/login` - Đăng nhập hệ thống.
-- `GET /api/students` - Lấy danh sách toàn bộ sinh viên.
-- `GET /api/students/{msv}` - Xem chi tiết 1 sinh viên.
-- `PUT /api/students/{msv}` - Cập nhật thông tin.
+3. **Run:** Chạy file `TtcsApplication.java` trên IntelliJ. Server chạy tại cổng `8080`.
