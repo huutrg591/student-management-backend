@@ -3,7 +3,7 @@
   <h1>🚀 KTX Management System - Backend API</h1>
 
   <img src="https://img.shields.io/badge/Spring%20Boot-3.2.0-brightgreen?style=for-the-badge&logo=springboot" alt="Spring Boot">
-  <img src="https://img.shields.io/badge/Java-17-orange?style=for-the-badge&logo=openjdk" alt="Java">
+  <img src="https://img.shields.io/badge/Java-21-orange?style=for-the-badge&logo=openjdk" alt="Java">
   <img src="https://img.shields.io/badge/MySQL-8.0-blue?style=for-the-badge&logo=mysql" alt="MySQL">
   <img src="https://img.shields.io/badge/Hibernate-ORM-yellow?style=for-the-badge&logo=hibernate" alt="Hibernate">
   <img src="https://img.shields.io/badge/Maven-Project-red?style=for-the-badge&logo=apachemaven" alt="Maven">
