@@ -1,8 +1,10 @@
 package com.example.TTCS.controller;
 
+import com.example.TTCS.dto.StudentInfoDTO;
 import com.example.TTCS.model.Student;
 import com.example.TTCS.repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -16,37 +18,16 @@ public class StudentController {
     private StudentRepository studentRepository;
 
     @GetMapping
-    public List<Student> getAllStudents() {
-        return studentRepository.findAll();
+    public ResponseEntity<List<StudentInfoDTO>> getAllStudents(
+            @RequestParam(required = false) String toa,
+            @RequestParam(required = false) String phong) {
+        // Lưu ý: Đảm bảo tên phương thức trong Repository khớp 100%
+        return ResponseEntity.ok(studentRepository.findStudentsWithRoom(toa, phong));
     }
 
+    // Các hàm khác giữ nguyên...
     @GetMapping("/{msv}")
     public Student getStudentById(@PathVariable String msv) {
         return studentRepository.findById(msv).orElse(null);
-    }
-
-    @PostMapping
-    public Student createStudent(@RequestBody Student student) {
-        return studentRepository.save(student);
-    }
-
-    @PutMapping("/{msv}")
-    public Student updateStudent(@PathVariable String msv, @RequestBody Student studentDetails) {
-        Student student = studentRepository.findById(msv).orElse(null);
-        if (student != null) {
-            student.setHoTen(studentDetails.getHoTen());
-            student.setNgaySinh(studentDetails.getNgaySinh());
-            student.setGioiTinh(studentDetails.getGioiTinh());
-            student.setSdt(studentDetails.getSdt());
-            student.setQueQuan(studentDetails.getQueQuan());
-            return studentRepository.save(student);
-        }
-        return null;
-    }
-
-    // Xóa sinh viên
-    @DeleteMapping("/{msv}")
-    public void deleteStudent(@PathVariable String msv) {
-        studentRepository.deleteById(msv);
     }
 }
