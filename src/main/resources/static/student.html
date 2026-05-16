@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Cổng Sinh Viên - KTX PTIT</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container" id="student-portal-root">
+        <aside class="sidebar">
+            <div class="sidebar-brand">
+                <i class="fa-solid fa-graduation-cap"></i>
+                <h2>Cổng Sinh Viên</h2>
+            </div>
+
+            <ul class="sidebar-nav">
+                <li class="active" data-student-section="overview-section">
+                    <i class="fa-solid fa-house-user"></i>
+                    <span>Tổng quan chỗ ở</span>
+                </li>
+                <li data-student-section="invoice-section">
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
+                    <span>Hóa đơn của tôi</span>
+                </li>
+                <li data-student-section="repair-section">
+                    <i class="fa-solid fa-screwdriver-wrench"></i>
+                    <span>Yêu cầu sửa chữa</span>
+                </li>
+            </ul>
+
+            <ul class="sidebar-nav logout-menu">
+                <li onclick="logout()">
+                    <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                    <span>Đăng xuất</span>
+                </li>
+            </ul>
+        </aside>
+
+        <div class="main-wrapper">
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h3 style="color: var(--text-muted); font-weight: 500;">
+                        Xin chào, <span id="student-topbar-name">Sinh viên</span>
+                        <span id="student-topbar-msv"></span>
+                    </h3>
+                </div>
+                <div class="topbar-right">
+                    <div class="user-profile">
+                        <img src="https://ui-avatars.com/api/?name=Sinh+Vien&background=ebf4ff&color=3b82f6" alt="Student">
+                        <span id="student-avatar-role">Sinh viên</span>
+                    </div>
+                </div>
+            </header>
+
+            <main class="content">
+                <div id="student-loading-state" class="empty-state">
+                    <div class="empty-state-card">
+                        <i class="fa-solid fa-spinner fa-spin"></i>
+                        <h3>Đang tải cổng sinh viên</h3>
+                        <p>Hệ thống đang lấy thông tin phòng ở, bạn cùng phòng và hóa đơn gần nhất.</p>
+                    </div>
+                </div>
+
+                <section id="overview-section" class="content-section">
+                    <div class="section-header">
+                        <h2>Tổng quan chỗ ở hiện tại</h2>
+                    </div>
+
+                    <div class="student-grid">
+                        <div class="student-room-panel">
+                            <div class="panel-header">
+                                <h3>Thông tin phòng</h3>
+                                <span id="room-card-status" class="status-pill status-success">Đang hiệu lực</span>
+                            </div>
+                            <div class="panel-body">
+                                <div class="hero-room">
+                                    <div class="hero-room-card">
+                                        <h4>Phòng - Tòa</h4>
+                                        <p id="room-card-name">--</p>
+                                    </div>
+                                    <div class="hero-room-card">
+                                        <h4>Loại phòng</h4>
+                                        <p id="room-card-type">--</p>
+                                    </div>
+                                    <div class="hero-room-card">
+                                        <h4>Giá thuê</h4>
+                                        <p id="room-card-price">--</p>
+                                    </div>
+                                </div>
+                                <div class="hero-room" style="margin-top: 16px;">
+                                    <div class="hero-room-card">
+                                        <h4>Số người đang ở</h4>
+                                        <p id="room-card-occupancy">--</p>
+                                    </div>
+                                    <div class="hero-room-card">
+                                        <h4>Số điện thoại</h4>
+                                        <p id="student-phone">--</p>
+                                    </div>
+                                    <div class="hero-room-card">
+                                        <h4>Quê quán</h4>
+                                        <p id="student-hometown">--</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="student-profile-panel">
+                            <div class="panel-header">
+                                <h3>Hồ sơ cá nhân</h3>
+                                <button class="btn btn-secondary btn-small" type="button" id="edit-profile-toggle">
+                                    <i class="fa-solid fa-pen"></i>
+                                    <span>Chỉnh sửa</span>
+                                </button>
+                            </div>
+                            <div class="panel-body">
+                                <div class="profile-summary">
+                                    <div class="profile-avatar">
+                                        <i class="fa-solid fa-user"></i>
+                                    </div>
+                                    <div>
+                                        <h3 id="student-profile-name">Sinh viên</h3>
+                                        <p id="student-profile-subtitle">--</p>
+                                    </div>
+                                </div>
+
+                                <div class="profile-fields">
+                                    <div class="profile-field">
+                                        <span>Mã sinh viên</span>
+                                        <strong id="student-topbar-msv-copy">--</strong>
+                                    </div>
+                                    <div class="profile-field">
+                                        <span>Ngày sinh</span>
+                                        <strong id="student-birthday">--</strong>
+                                    </div>
+                                </div>
+
+                                <form id="student-profile-form" class="student-profile-form" style="display: none;">
+                                    <div class="form-group">
+                                        <label for="profile-msv">Mã sinh viên</label>
+                                        <input type="text" id="profile-msv" readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-ho-ten">Họ và tên</label>
+                                        <input type="text" id="profile-ho-ten" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-ngay-sinh">Ngày sinh</label>
+                                        <input type="date" id="profile-ngay-sinh">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-gioi-tinh">Giới tính</label>
+                                        <select id="profile-gioi-tinh">
+                                            <option value="Nam">Nam</option>
+                                            <option value="Nữ">Nữ</option>
+                                            <option value="Chưa cập nhật">Chưa cập nhật</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-sdt">Số điện thoại</label>
+                                        <input type="text" id="profile-sdt">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="profile-que-quan">Quê quán</label>
+                                        <input type="text" id="profile-que-quan">
+                                    </div>
+                                    <div class="form-actions profile-form-actions">
+                                        <button type="submit" class="btn btn-primary">
+                                            <i class="fa-solid fa-floppy-disk"></i>
+                                            <span>Lưu thay đổi</span>
+                                        </button>
+                                        <button type="button" class="btn btn-secondary" id="cancel-profile-edit">Hủy</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-header">
+                        <h3><i class="fa-solid fa-users"></i> Danh sách bạn cùng phòng</h3>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>MSV</th>
+                                    <th>Họ tên</th>
+                                    <th>Vị trí giường</th>
+                                    <th>Số điện thoại</th>
+                                </tr>
+                            </thead>
+                            <tbody id="roommates-table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="invoice-section" class="content-section" style="display: none;">
+                    <div class="section-header">
+                        <h2>Hóa đơn điện nước theo phòng</h2>
+                    </div>
+                    <div class="table-container">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Kỳ thu</th>
+                                    <th>Điện tiêu thụ</th>
+                                    <th>Nước tiêu thụ</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Trạng thái</th>
+                                    <th>Thao tác</th>
+                                </tr>
+                            </thead>
+                            <tbody id="invoice-table-body"></tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section id="repair-section" class="content-section" style="display: none;">
+                    <div class="section-header">
+                        <h2>Gửi yêu cầu sửa chữa</h2>
+                    </div>
+
+                    <div class="repair-layout">
+                        <div class="student-form-panel">
+                            <div class="panel-header">
+                                <h3>Tạo yêu cầu mới</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form id="repair-form">
+                                    <div class="form-group" style="margin-bottom: 18px;">
+                                        <label for="repair-category">Hạng mục</label>
+                                        <select id="repair-category" name="repair-category" required>
+                                            <option value="">Chọn hạng mục</option>
+                                            <option value="Điện">Điện</option>
+                                            <option value="Nước">Nước</option>
+                                            <option value="Cơ sở vật chất">Cơ sở vật chất</option>
+                                            <option value="Khác">Khác</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group" style="margin-bottom: 18px;">
+                                        <label for="repair-description">Mô tả chi tiết</label>
+                                        <textarea id="repair-description" name="repair-description" rows="6" placeholder="Ví dụ: Bóng đèn giữa phòng bị hỏng từ tối qua..." required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">
+                                        <i class="fa-solid fa-paper-plane"></i>
+                                        <span>Gửi yêu cầu</span>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="student-form-panel">
+                            <div class="panel-header">
+                                <h3>Lịch sử gần đây</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div id="repair-history-list" class="repair-history"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

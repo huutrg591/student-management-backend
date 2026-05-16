@@ -1,0 +1,41 @@
+[ {
+  "id" : 1,
+  "msv" : "B21DCCN001",
+  "roomId" : "P101-B1",
+  "category" : "Điện",
+  "description" : "Đèn phòng bị hỏng",
+  "status" : "Đã tiếp nhận",
+  "createdAt" : "11/05/2026 16:55"
+}, {
+  "id" : 2,
+  "msv" : "B21DCCN001",
+  "roomId" : "P101-B1",
+  "category" : "Cơ sở vật chất",
+  "description" : "Sửa điều hòa",
+  "status" : "Đã tiếp nhận",
+  "createdAt" : "11/05/2026 17:16"
+}, {
+  "id" : 3,
+  "msv" : "B21DCCN001",
+  "roomId" : "P101-B1",
+  "category" : "Cơ sở vật chất",
+  "description" : "Hỏng giường",
+  "status" : "Đã hoàn thành",
+  "createdAt" : "11/05/2026 17:26"
+}, {
+  "id" : 4,
+  "msv" : "B23DCCN869",
+  "roomId" : "P101-B2",
+  "category" : "Cơ sở vật chất",
+  "description" : "Hỏng bóng đèn",
+  "status" : "Chờ tiếp nhận",
+  "createdAt" : "12/05/2026 12:09"
+}, {
+  "id" : 5,
+  "msv" : "b23dccn896",
+  "roomId" : "",
+  "category" : "Điện",
+  "description" : "hong",
+  "status" : "Chờ tiếp nhận",
+  "createdAt" : "14/05/2026 00:07"
+} ]
