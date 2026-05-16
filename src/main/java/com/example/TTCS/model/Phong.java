@@ -32,4 +32,6 @@ public class Phong {
 
     @Column(name = "trang_thai")
     private String trangThai;
+    @Column(name = "gioi_tinh")
+    private String gioiTinh;
 }

@@ -30,4 +30,7 @@ public class Student {
 
     @Column(name = "que_quan")
     private String queQuan;
+
+    @Column(name = "id_phong")
+    private String idPhong;
 }
